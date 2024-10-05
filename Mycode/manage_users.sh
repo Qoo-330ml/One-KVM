@@ -1,5 +1,5 @@
 #!/bin/bash
-## ## wget -O manage_users.sh https://raw.githubusercontent.com/Qoo-330ml/One-KVM/refs/heads/main/Mycode/manage_users.sh && chmod +x manage_users.sh && sudo ./manage_users.sh
+## wget -O manage_users.sh https://raw.githubusercontent.com/Qoo-330ml/One-KVM/refs/heads/main/Mycode/manage_users.sh && chmod +x manage_users.sh && sudo ./manage_users.sh
 # 显示当前用户列表
 echo "当前用户列表:"
 kvmd-htpasswd list
@@ -26,7 +26,7 @@ case $choice in
     2)
         # 删除用户账号
         echo "当前用户列表:"
-        kvmd-htpasswd list
+        kvmd-htpasswd list | awk '{print NR": "$0}'
         read -p "请选择要删除的用户名对应的数字: " user_number
         username=$(kvmd-htpasswd list | awk "NR==$user_number {print \$1}")
         if [[ -z "$username" ]]; then
@@ -38,9 +38,9 @@ case $choice in
         echo "用户 $username 删除成功。"
         ;;
     3)
-        # 修改现有用户的密码
+        # 修改用户账号密码
         echo "当前用户列表:"
-        kvmd-htpasswd list
+        kvmd-htpasswd list | awk '{print NR": "$0}'
         read -p "请选择要修改密码的用户名对应的数字: " user_number
         username=$(kvmd-htpasswd list | awk "NR==$user_number {print \$1}")
         if [[ -z "$username" ]]; then

@@ -1,5 +1,5 @@
 #!/bin/bash
-## wget -O init_script.sh https://raw.githubusercontent.com/Qoo-330ml/One-KVM/refs/heads/main/init_script.sh && chmod +x init_script.sh && sudo ./init_script.sh
+## wget -O init_script.sh https://raw.githubusercontent.com/Qoo-330ml/One-KVM/refs/heads/main/Mycode/init_script.sh && chmod +x init_script.sh && sudo ./init_script.sh
 
 
 # 确保脚本以root权限运行

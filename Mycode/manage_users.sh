@@ -1,5 +1,5 @@
 #!/bin/bash
-## ## wget -O init_script.sh https://raw.githubusercontent.com/Qoo-330ml/One-KVM/refs/heads/main/Mycode/init_script.sh && chmod +x init_script.sh && sudo ./init_script.sh
+## ## wget -O manage_users.sh https://raw.githubusercontent.com/Qoo-330ml/One-KVM/refs/heads/main/Mycode/manage_users.sh && chmod +x manage_users.sh && sudo ./manage_users.sh
 # 显示当前用户列表
 echo "当前用户列表:"
 kvmd-htpasswd list

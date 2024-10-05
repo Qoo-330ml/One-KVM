@@ -15,10 +15,10 @@ dd if=/dev/zero of=/root/pikvm_msd.img bs=1M count=4096
 mkfs.ext4 /root/pikvm_msd.img
 
 # 步骤3: 在/etc/fstab追加新的挂载点
-echo '/root/pikvm_msd.img /var/lib/kvmd/msd  ext4  nofail,nodev,nosuid,noexec,rw,errors=remount-ro,data=jou>
+echo '/pikvm_msd.img /var/lib/kvmd/msd  ext4  nofail,nodev,nosuid,noexec,rw,errors=remount-ro,data=journal,X-kvmd.otgmsd-root=/var/lib/kvmd/msd,X-kvmd.otgmsd-user=kvmd  0 0' >> /etc/fstab
 
 # 步骤4: 挂载文件系统
-mount /root/pikvm_msd.img
+mount -o loop /root/pikvm_msd.img /var/lib/kvmd/msd
 
 # 步骤5: 编辑/etc/kvmd/override.yaml文件
 sed -i '/msd:/,+2 s/type: disabled/type: otg/' /etc/kvmd/override.yaml
